@@ -6,11 +6,28 @@
             <hr>
             <app-servers></app-servers>
 
-            <!-- <hr>
-            <app-alerts></app-alerts>
+                <!-- <hr>
+                <app-alerts></app-alerts>
 
+                <hr>
+                <app-user></app-user> -->
+            
             <hr>
-            <app-user></app-user> -->
+            <label>Hidden Details</label>
+            <button class="btn btn-info" (click)="onButtonClick()">Display Details</button>
+            <div *ngIf="buttonClicked; else noClick">
+                <p *ngIf="buttonClicked; else noClick">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio rerum, nobis soluta earum numquam consectetur, magnam, suscipit ipsa officia ab necessitatibus neque deserunt alias repudiandae a quo perspiciatis maiores reiciendis.
+                </p>
+            </div>
+            <ng-template #noClick>
+                <p>
+                Need to click button!
+                </p>
+            </ng-template>
+            <ul class="list-group" *ngFor="let click of buttonClicks; let i = index">
+                    <li class="list-group-item" [ngClass]="{overFiveClicks: i >= 4}">{{click}}</li>
+            </ul>
         </div>
     </div>
 </div> 
